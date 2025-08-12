@@ -1,9 +1,20 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext"
 
 
 function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
+
+  const navigate = useNavigate()
+
+  const { handleLogout } = useContext(AuthContext)
+
+  function logout() {
+    handleLogout()
+    alert("O Usuário foi desconectado com sucesso!")
+    navigate("/login")
+  }
 
   return (
     <>
@@ -41,7 +52,7 @@ function Navbar() {
                     <Link to={"/"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Suporte</Link>
                   </li>
                   <li>
-                    <Link to={"/"} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sair</Link>
+                    <Link to={"/"} onClick={logout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sair</Link>
                   </li>
                 </ul>
               </div>
