@@ -137,7 +137,7 @@ function FormServico() {
     const carregandoCategoria = categoria.nome === "";
 
     return (
-        <div className="container flex flex-col mx-auto items-center">
+        <div className="container flex flex-col mx-auto items-center popup-content bg-slate-700 text-white">
         <h1 className="text-4xl text-center my-8">
             {id !== undefined ? "Editar ServiÇo" : "Cadastrar ServiÇo"}
         </h1>
