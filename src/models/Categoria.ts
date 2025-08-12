@@ -1,4 +1,5 @@
-import type Servico from './Servico'
+
+import type Servico from "./Servico";
 
 export default interface Categoria{
   id: number;
