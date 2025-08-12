@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <div className=''>
+      <div className='bg-slate-200'>
         <AuthProvider>
           <ToastContainer />
           <BrowserRouter>
@@ -25,13 +25,13 @@ function App() {
             <div className='min-h-[80vh]'>
               <Routes>
                 <Route path='/' element={<Login />} />
-                <Route path='/home' element={<Home />} />
-                <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/servicos' element={<ListaServicos />} />
                 <Route path="/cadastrarservico" element={<FormServico />} />
                 <Route path="/editarservico/:id" element={<FormServico />} />
                 <Route path="/deletarservico/:id" element={<DeletarServico />} />
+                <Route path='/cadastro' element={<Cadastro />} />
+                <Route path='/home' element={<Home />} />
               </Routes>
             </div>
             <Footer />
