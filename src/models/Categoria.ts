@@ -1,7 +1,7 @@
-import type Postagem from "./Servico";
+import type Servico from "./Servico";
 
 export default interface Tema {
   id: number;
-  descricao: string;
-  postagem?: Postagem[] | null;
+  nome: string;
+  servico?: Servico[] | null;
 }
