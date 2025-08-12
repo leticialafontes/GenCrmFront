@@ -1,6 +1,7 @@
+
 import type Servico from "./Servico";
 
-export default interface Tema {
+export default interface Categoria{
   id: number;
   nome: string;
   servico?: Servico[] | null;
