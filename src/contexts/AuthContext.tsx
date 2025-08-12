@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { type ReactNode, createContext, useState } from "react"
 import type UsuarioLogin from "../models/UsuarioLogin"
+import { login } from "../services/Service"
 
 
 interface AuthContextProps {

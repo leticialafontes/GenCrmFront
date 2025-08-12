@@ -12,16 +12,16 @@ function App() {
 
   return (
     <>
-      <div className=''>
+      <div className='bg-slate-200'>
         <AuthProvider>
           <BrowserRouter>
             <Navbar />
             <div className='min-h-[80vh]'>
               <Routes>
-                {/* <Route path='/' element={<Login />} />
-                <Route path='/home' element={<Home />} />
+                <Route path='/' element={<Login />} />
+                <Route path='/login' element={<Login />} />
                 <Route path='/cadastro' element={<Cadastro />} />
-                <Route path='/login' element={<Login />} /> */}
+                <Route path='/home' element={<Home />} />
               </Routes>
             </div>
             <Footer />
