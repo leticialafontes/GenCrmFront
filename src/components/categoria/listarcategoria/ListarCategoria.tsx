@@ -18,7 +18,7 @@ function ListarCategoria() {
     async function buscarCategorias() {
         try {
             await buscar("/categorias", setCategorias, {
-                Headers: {Authorization: token,
+                headers: {Authorization: token,
                 }
             })
         } catch (error: any) {
@@ -41,7 +41,7 @@ function ListarCategoria() {
         buscarCategorias();
     }, [categorias.length]);
 
-    
+
   return (
     <>
 
