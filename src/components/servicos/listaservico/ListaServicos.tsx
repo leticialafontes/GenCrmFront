@@ -68,28 +68,30 @@ function ListaServicos() {
 
     return (
         <>
-            {servicos.length === 0 && (
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'flex-start',
-                    height: '100vh',
-                    paddingTop: '20px',
-                }}>
-                    <Hourglass
-                        visible={true}
-                        height="600"
-                        width="250"
-                        ariaLabel="hourglass-loading"
-                        colors={['#0f6a9d', '#53bde9']}
-                    />
-                </div>
-            )}
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <div className="flex justify-around gap-4 mt-4">
-                        <ModalServico />
-                    </div>
-                 <div className="flex justify-center gap-4 my-4">
+        {servicos.length === 0 && (
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                height: '100vh',
+                paddingTop: '20px',
+            }}>
+                <Hourglass
+                    visible={true}
+                    height="600"
+                    width="250"
+                    ariaLabel="hourglass-loading"
+                    colors={['#0f6a9d', '#53bde9']}
+                />
+            </div>
+        )}
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+            <div className="flex justify-around gap-4 mt-4">
+                <ModalServico />
+            </div>
+
+            <div className="flex justify-center gap-4 my-4">
                 <div className="relative w-full max-w-md">
                     <input
                         type="text"
@@ -97,7 +99,7 @@ function ListaServicos() {
                         onChange={(e) => setBusca(e.target.value)}
                         placeholder="Pesquisar Nome do Serviço..."
                         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md shadow-sm 
-                 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
                     />
                 </div>
 
@@ -108,25 +110,25 @@ function ListaServicos() {
                     <MagnifyingGlassIcon size={20} />
                 </button>
             </div>
-                <table className="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-stone-50 uppercase bg-sky-800 dark:bg-gray-700 dark:text-gray-300">
-                        <tr>
-                            <th scope="col" className="px-6 py-3">ID</th>
-                            <th scope="col" className="px-6 py-3">Nome</th>
-                            <th scope="col" className="px-6 py-3">Descrição</th>
-                            <th scope="col" className="px-6 py-3">Valor</th>
-                            <th scope="col" className="px-6 py-3">Status</th>
-                            <th scope="col" className="px-6 py-3">Categoria</th>
-                            <th scope="col" className="px-6 py-3">Edição</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {servicos.map((servico) => (
-                            <TabelaServicos key={servico.id} servico={servico} />
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            <table className="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
+                <thead className="text-xs text-stone-50 uppercase bg-sky-800 dark:bg-gray-700 dark:text-gray-300">
+                    <tr>
+                        <th scope="col" className="px-6 py-3">ID</th>
+                        <th scope="col" className="px-6 py-3">Nome</th>
+                        <th scope="col" className="px-6 py-3">Descrição</th>
+                        <th scope="col" className="px-6 py-3">Valor</th>
+                        <th scope="col" className="px-6 py-3">Status</th>
+                        <th scope="col" className="px-6 py-3">Categoria</th>
+                        <th scope="col" className="px-6 py-3">Edição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {servicos.map((servico) => (
+                        <TabelaServicos key={servico.id} servico={servico} />
+                    ))}
+                </tbody>
+            </table>
+        </div>
         </>
     );
 }

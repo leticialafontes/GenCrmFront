@@ -91,7 +91,6 @@ function FormServico() {
   }
 
   function retornar() {
-    navigate("/categorias");
     navigate("/servicos");
   }
 
@@ -178,7 +177,7 @@ function FormServico() {
                 step={500}
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.valor || 0}
+                value={servico.valor}
                 onChange={atualizarEstado}
               />
             </div>

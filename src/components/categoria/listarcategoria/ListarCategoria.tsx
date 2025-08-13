@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { DNA, Hourglass } from "react-loader-spinner";
+import { Hourglass } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Categoria from "../../../models/Categoria";
@@ -93,7 +93,7 @@ function ListarCategoria() {
 
 
     return (
-        <div className="bg-gradient-to-t from-sky-600 to-slate-100 min-h-[80vh] bg-no-repeat bg-cover bg-center bg-fixed px-4 py-6">
+        <div className=" min-h-[80vh] bg-no-repeat bg-cover bg-center bg-fixed px-4 py-6">
 
             <Link
                 to="/categorias/cadastrar"
@@ -125,7 +125,7 @@ function ListarCategoria() {
                         <tr>
                             <th scope="col" className="px-6 py-3">ID</th>
                             <th scope="col" className="px-6 py-3">Nome</th>                            
-                            <th scope="col" className="px-6 py-3">Edição</th>
+                            <th scope="col" className="text-right pr-35 py-3">Edição</th>
                         </tr>
                     </thead>
                     <tbody>
