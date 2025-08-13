@@ -14,7 +14,7 @@ function Futuro() {
 
       <div id="futuro" className="bg-[#EDF2F4] container mx-auto">
 
-        <h2 className="text-center text-[#325E80] text-4xl font-bold py-4">
+        <h2 className="text-center text-[#325E80] text-4xl font-bold mt-10 py-4">
           EM IMPLEMENTAÇÃO
         </h2>
 
