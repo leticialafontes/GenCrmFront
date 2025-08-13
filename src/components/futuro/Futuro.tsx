@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { futuro } from '../data/futuro';
 import CardFuturo from './CardFuturo';
+import { motion, AnimatePresence } from 'framer-motion';
+
+
 
 function Futuro() {
   const cfuturo = futuro;
+  const [visible, setVisible] = useState(false);
+
   return (
     <>
 
@@ -19,7 +25,23 @@ function Futuro() {
           ))}
         </div>
 
-        <hr className=" h-0.5 mx-50 border-[#325E80] border-2 rounded-b-4xl" />
+        <hr className="cursor-pointer h-0.5 mx-50 border-[#325E80] border-2 rounded-b-4xl"  onClick={() => setVisible(true)}/>
+
+        <AnimatePresence>
+            {visible && (
+              <motion.img
+                src="https://ik.imagekit.io/gengrupo03/genCRM/Gemini_Generated_Image_9uwmlw9uwmlw9uwm.png?updatedAt=1755110249309"
+                alt="Agradecimento"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 1 }}
+                className="px-10"
+              />
+            )}
+          </AnimatePresence>
+
+
       </div>
 
     </>
