@@ -66,6 +66,12 @@ function ListaServicos() {
             }
         };
 
+        const limparBusca = () => {
+        setBusca("");  
+        buscarServicos();  
+    };
+
+
     return (
         <>
         {servicos.length === 0 && (
@@ -109,6 +115,15 @@ function ListaServicos() {
                 >
                     <MagnifyingGlassIcon size={20} />
                 </button>
+
+
+                <button
+                    onClick={limparBusca}
+                    className="px-4 py-2 bg-gray-400 hover:bg-gray-500 text-white rounded-md shadow-sm">
+                    Limpar
+                </button>
+
+
             </div>
             <table className="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-stone-50 uppercase bg-sky-800 dark:bg-gray-700 dark:text-gray-300">
