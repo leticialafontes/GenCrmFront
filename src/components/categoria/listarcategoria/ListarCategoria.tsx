@@ -1,67 +1,123 @@
 import { useContext, useEffect, useState } from "react";
-import type Categoria from "../../../models/Categoria";
-import {buscar} from "../../../services/Service"
-import CardCategoria from "../cardcategoria/CardCategoria";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
 import { DNA } from "react-loader-spinner";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import type Categoria from "../../../models/Categoria";
+import { buscar, buscarPorNome } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
+import CardCategoria from "../cardcategoria/CardCategoria";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 
 function ListarCategoria() {
-
-    const [categorias, setCategorias] = useState<Categoria[]> ([]);
-    const navigate = useNavigate ();
-    const {usuario, handleLogout} = useContext (AuthContext);
+    const [categorias, setCategorias] = useState<Categoria[]>([]);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
+    const [busca, setBusca] = useState("");
 
 
     async function buscarCategorias() {
         try {
+            setLoading(true);
+
             await buscar("/categorias", setCategorias, {
-                headers: {Authorization: token,
-                }
-            })
+                headers: {
+                    Authorization: token,
+                },
+            });
+
         } catch (error: any) {
-            if (error.toString().includes('403')) {
-                handleLogout ()
+            if (error.toString().includes("403")) {
+                handleLogout();
             }
+        } finally {
+            setLoading(false);
         }
     }
 
 
-    useEffect (() => {
-        if (token === '') {
-            ToastAlerta('Você precisa estar logado!','erro')
-            navigate ('/')
+    useEffect(() => {
+        if (token === "") {
+            ToastAlerta("Você precisa estar logado!", "erro");
+            navigate("/");
         }
-    }, [token])
-        
+    }, [token]);
+
 
     useEffect(() => {
         buscarCategorias();
-    }, [categorias.length]);
+    }, []);
+
+    const buscarCategoriasPorNome = async () => {
+        if (busca.trim() === "") {
+            ToastAlerta("Digite algo para pesquisar!", "info");
+            return;
+        }
+
+        try {
+            await buscarPorNome(
+                `/categorias/nome/${busca}`,
+                setCategorias,
+                {
+                    headers: {
+                        Authorization: token,
+                    },
+                }
+            );
+        } catch (error) {
+            ToastAlerta("Erro ao buscar categorias", "erro");
+        }
+    };
 
 
-  return (
-    <>
-
-        {categorias.length === 0 && (
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen bg-white">
                 <DNA
                     visible={true}
                     height="200"
-                    width="200"
+                    width="300"
                     ariaLabel="dna-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="dna-wrapper mx-auto"
+                    wrapperClass="dna-wrapper"
                 />
-            )}
+            </div>
+        );
+    }
 
 
-        <div className="flex flex-col items-center text-center bg-gradient-to-b from-sky-100 via-slate-100 to-sky-300 min-h-[80vh] bg-fixed py-8 px-4">
-            <Link to='/categorias/cadastrar' className="mb-6 px-6 py-2 border border-gray-400 rounded-md text-gray-800 font-semibold 
-               hover:bg-gray-300 hover:text-gray-900 transition-all duration-300 shadow-sm">Cadastrar nova categoria</Link>
+    return (
+        <div className="bg-gradient-to-t from-sky-600 to-slate-100 min-h-[80vh] bg-no-repeat bg-cover bg-center bg-fixed px-4 py-6">
 
-            <p className="text-xl font-bold text-gray-700 mb-4">Lista de categorias</p>
+            <Link
+                to="/categorias/cadastrar"
+                className="my-4 items-center px-6 py-2 border border-gray-400 rounded-md text-gray-800 font-semibold text-xl hover:bg-gray-300 hover:text-gray-900 flex justify-center mx-auto transition-all duration-300 shadow-sm w-1/2">
+                Cadastrar nova categoria
+            </Link>
+
+            <div className="flex justify-center gap-4 my-4">
+                <div className="relative w-full max-w-md">
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                        <MagnifyingGlassIcon size={20} />
+                    </span>
+                    <input
+                        type="text"
+                        value={busca}
+                        onChange={(e) => setBusca(e.target.value)}
+                        placeholder="Pesquisar categoria..."
+                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md shadow-sm 
+                 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                    />
+                </div>
+
+                <button
+                    onClick={buscarCategoriasPorNome}
+                    className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-md shadow-sm"
+                >
+                    <MagnifyingGlassIcon size={20} />
+                </button>
+            </div>
+
 
             <div>
                 {categorias.map((categoria) => (
@@ -69,8 +125,8 @@ function ListarCategoria() {
                 ))}
             </div>
         </div>
-    </>
-  );
+    );
 }
 
-export default ListarCategoria
+export default ListarCategoria;
+
