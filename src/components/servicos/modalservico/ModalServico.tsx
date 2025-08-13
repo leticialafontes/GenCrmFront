@@ -6,7 +6,7 @@ function ModalServico() {
     <Popup
       trigger={
         <button
-          className='border rounded px-4 py-2 bg-sky-900 text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-sky-800 cursor-pointer'>
+          className='my-4 items-center px-6 py-2 border border-gray-400 rounded-md text-gray-800 font-semibold text-xl hover:bg-gray-300 hover:text-gray-900 flex justify-center mx-auto transition-all duration-300 shadow-sm w-1/2'>
           Novo Serviço
         </button>
       }

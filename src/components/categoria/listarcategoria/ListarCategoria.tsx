@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { DNA } from "react-loader-spinner";
+import { DNA, Hourglass } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Categoria from "../../../models/Categoria";
@@ -73,15 +73,21 @@ function ListarCategoria() {
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center min-h-screen bg-white">
-                <DNA
-                    visible={true}
-                    height="200"
-                    width="300"
-                    ariaLabel="dna-loading"
-                    wrapperClass="dna-wrapper"
-                />
-            </div>
+            <div style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'flex-start',
+                                height: '100vh',
+                                paddingTop: '20px',
+                            }}>
+                                <Hourglass
+                                    visible={true}
+                                    height="600"
+                                    width="250"
+                                    ariaLabel="hourglass-loading"
+                                    colors={['#0f6a9d', '#53bde9']}
+                                />
+                            </div>
         );
     }
 
@@ -114,13 +120,20 @@ function ListarCategoria() {
                     <MagnifyingGlassIcon size={20} />
                 </button>
             </div>
-
-
-            <div>
-                {categorias.map((categoria) => (
-                    <CardCategoria key={categoria.id} categoria={categoria} />
-                ))}
-            </div>
+                <table className="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
+                    <thead className="text-xs text-stone-50 uppercase bg-sky-800 dark:bg-gray-700 dark:text-gray-300">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">ID</th>
+                            <th scope="col" className="px-6 py-3">Nome</th>                            
+                            <th scope="col" className="px-6 py-3">Edição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {categorias.map((categoria) => (
+                            <CardCategoria key={categoria.id} categoria={categoria} />
+                        ))}
+                    </tbody>
+                </table>
         </div>
     );
 }
