@@ -19,7 +19,7 @@ function TabelaServicos({servico} : TabelaServicosProps) {
         <td className="font-lg">
             <div className="flex justify-center gap-2">
                 <Link to={`/editarservico/${servico.id}`}>
-                <PencilSimpleIcon className="border bg-yellow-200 text-black text-2xl p-1 rounded" />
+                <PencilSimpleIcon className="border bg-sky-300 text-black text-2xl p-1 rounded" />
                 </Link>
                 <Link to={`/deletarservico/${servico.id}`}>
                 <TrashIcon className="border bg-red-200 text-black text-2xl p-1 rounded" />

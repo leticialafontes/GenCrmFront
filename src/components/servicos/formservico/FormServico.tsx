@@ -1,4 +1,9 @@
-import { useContext, useEffect, useState, type ChangeEvent } from "react";
+import {
+  useContext,
+  useEffect,
+  useState,
+  type ChangeEvent
+} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import type Servico from "../../../models/Servico";
 import type Categoria from "../../../models/Categoria";
@@ -86,19 +91,18 @@ function FormServico() {
   }
 
   function retornar() {
+    navigate("/categorias");
     navigate("/servicos");
   }
 
   async function gerarNovoServico(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
- console.log(servico)
+
     if (id !== undefined) {
       try {
         await atualizar(`/servicos`, servico, setServico, {
-          headers: {
-            Authorization: token,
-          },
+          headers: { Authorization: token },
         });
         ToastAlerta("Serviço atualizado com sucesso!", "sucesso");
       } catch (error: any) {
@@ -111,9 +115,7 @@ function FormServico() {
     } else {
       try {
         await cadastrar(`/servicos`, servico, setServico, {
-          headers: {
-            Authorization: token,
-          },
+          headers: { Authorization: token },
         });
         ToastAlerta("Serviço cadastrado com sucesso!", "sucesso");
       } catch (error: any) {
@@ -124,37 +126,20 @@ function FormServico() {
         }
       }
     }
-
     setIsLoading(false);
     retornar();
   }
 
   const carregandoCategoria = categoria.nome === "";
 
+
   return (
-    <div
-      id="authentication-modal"
-      tabIndex={-1}
-      aria-hidden="true"
-      className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
-                 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-    >
-      <div className="relative p-4 w-full max-w-2xl max-h-full">
-        <div className="relative rounded-lg shadow bg-sky-800 p-6">
-            <button
-                type="button"
-                onClick={retornar}
-                className="absolute top-4 right-4 text-white hover:text-gray-800 text-xl font-bold"
-                aria-label="Fechar"
-                >
-                ×
-            </button>
+      <div className="container flex-col justify-center items-center min-h-screen bg-sky rounded-sm p-2">
+            <div className="text-3xl text-center font-bold text-sky-900 mt-20">
+                {id !== undefined ? 'Editar Serviço' : 'Cadastrar Serviço'}
+            </div>
 
-          <h1 className="text-2xl font-bold text-center mb-6 text-stone-50">
-            {id !== undefined ? "Editar Serviço" : "Cadastrar Serviço"}
-          </h1>
-
-          <form className="flex flex-col gap-4" onSubmit={gerarNovoServico}>
+          <form className="bg-slate-100 shadow-xl/30  font-bold rounded-lg p-8 max-w-md w-full flex flex-col gap-6" onSubmit={gerarNovoServico}>
             <div className="flex flex-col gap-2">
               <label htmlFor="nome">Nome do Serviço</label>
               <input
@@ -190,6 +175,7 @@ function FormServico() {
                 placeholder="Informe o valor do Serviço"
                 id="valor"
                 name="valor"
+                step={500}
                 required
                 className="border-2 border-slate-700 rounded p-2"
                 value={servico.valor || 0}
@@ -211,7 +197,7 @@ function FormServico() {
               />
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 ">
               <p>Categoria do Serviço</p>
               <select
                 name="categoria"
@@ -219,11 +205,11 @@ function FormServico() {
                 className="border p-2 border-slate-800 rounded"
                 onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
               >
-                <option value="" disabled selected>
+                <option value="" disabled selected className="bg-sky-200 tex-white">
                   Selecione a Categoria
                 </option>
                 {categorias.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
+                  <option key={cat.id} value={cat.id} >
                     {cat.nome}
                   </option>
                 ))}
@@ -232,7 +218,7 @@ function FormServico() {
 
             <button
               type="submit"
-              className="rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
+              className="rounded disabled:bg-slate-200 bg-sky-700 hover:bg-sky-500 text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
               disabled={carregandoCategoria}
             >
               {isLoading ? (
@@ -249,8 +235,6 @@ function FormServico() {
             </button>
           </form>
         </div>
-      </div>
-    </div>
   );
 }
 
