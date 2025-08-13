@@ -3,14 +3,15 @@ import Equipe from "../../components/equipe/Equipe";
 import Futuro from "../../components/futuro/Futuro";
 import Sobre from "../../components/sobre/Sobre";
 import Tech from "../../components/tech/Tech";
+import NavbarLanding from "../../components/navbar-landing/NavbarLanding";
 
 function Landing() {
     return (
         <>
-            {/* <NavbarLanding /> */}
+            <NavbarLanding />
 
 
-            <div className="bg-[#EDF2F4]">
+            <div id="landing" className="bg-[#EDF2F4]">
                 <div className="flex justify-between">
 
                     <div className='grid grid-cols-2'>
@@ -45,7 +46,25 @@ function Landing() {
 
             <Equipe />
             <Sobre />
-            
+            <Tech />
+
+            <div className="flex flex-col gap-6 items-center justify-center">
+                            <h2 className="block text-black text-3xl md:text-7xl lg:text-9xl font-bold text-center ">
+                                GenCRM
+                            </h2>
+                            <p className="block text-[#325E80] text-sm md:text-2xl lg:text-5xl font-bold text-center">
+                                Controle seus <span className="bg-gradient-to-r from-[#ef476f] via-[#ef798a] to-[#ef476f] text-transparent bg-clip-text">
+                                    dados</span>
+                                , impulsione seus <span className="bg-gradient-to-r from-[#ef476f] via-[#ef798a] to-[#ef476f] text-transparent bg-clip-text">
+                                    resultados</span>!
+                            </p>
+                            <Link to="/login" className="border-black/80 border-2 text-lg text-black/80 font-semibold rounded py-2 px-4 hover:bg-[#325E80]/20 hover:shadow-lg cursor-pointer">
+                                ACESSE AGORA!
+                            </Link>
+                        </div>
+
+
+
             <Futuro />
             </div>
         </>

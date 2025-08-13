@@ -4,22 +4,21 @@ function NavbarLanding() {
 
     return (
         <>
-            <nav className="fixed top-0 w-full z-10 bg-red-900/25 backdrop-filter backdrop-blur-md backdrop-contrast-100 shadow-md border-b border-red-900">
-                <div className="max-w-8xl px-10 py-0.5 flex items-center gap-200 justify-center">
+            <nav className="absolute w-[90%] left-1/2 transform -translate-x-1/2 top-2 bg-[#FAFEFD] rounded-4xl shadow-md ">
+                <div className="container w-[170vh] mx-auto flex items-center justify-between">
                     <div>
-                            <a href="#home"><img
-                                src="https://ik.imagekit.io/gengrupo03/landing-rh/110_Sem_Titulo_20250808095939.png?updatedAt=1754673913526"
-                                alt="Logo da GenRH"
-                                className='h-16'
-                            /></a>
-                        </div>
-                    <div className="flex gap-5">
-                        <a href="#equipe" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Equipe</a>
-                        <a href="#sobre" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Sobre</a>
-                        <a href="#tech" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Tech</a>
-                        <a href="#futuro" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Futuro</a>
-                        <a href="#contato" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Contato</a>
-                        <Link to="/login" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Entre/Cadastra-se</Link>
+                        <a href="#landing">
+                            <img src="https://ik.imagekit.io/gengrupo03/genCRM/ChatGPT_Image_10_de_jul._de_2025_12_17_28.png?updatedAt=1755020474593"
+                                alt="Logo da GenCRM"
+                                className='h-16' /></a>
+                    </div>
+                    <div className="flex gap-8 text-center items-center text-black font-semibold">
+                        <a href="#equipe" className="hover:text-[#85CCE5] hover:underline decoration-2">Equipe</a>
+                        <a href="#sobre" className="hover:text-[#85CCE5] hover:underline decoration-2">Sobre</a>
+                        <a href="#tech" className="hover:text-[#85CCE5] hover:underline decoration-2">Tech</a>
+                        <a href="#futuro" className="hover:text-[#85CCE5] hover:underline decoration-2">Futuro</a>
+                        <a href="#contato" className="hover:text-[#85CCE5] hover:underline decoration-2">Contato</a>
+                        <Link to="/login" className="hover:text-[#85CCE5] hover:underline decoration-2">Entre/<br />Cadastre-se</Link>
 
                     </div>
                 </div>

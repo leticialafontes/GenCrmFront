@@ -15,7 +15,7 @@ function CardFuturo({ metodos }: SobreProps) {
           duration: 0.5,
           scale: { visualDuration: 1 },
         }}>
-        <div className="flex gap-3 bg-[#85CCE5]/10 shadow-sm">
+        <div className="flex gap-3 bg-[#85CCE5]/10 shadow-sm rounded-2xl">
           <div className="flex items-center">
           <img src={metodos.pic} className="size-20 mt-4" />
 
