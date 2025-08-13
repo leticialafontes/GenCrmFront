@@ -9,34 +9,46 @@ import FooterLanding from "../../components/footer-landing/FooterLanding";
 function Landing() {
     return (
         <>
-                <NavbarLanding />
-                <div id="home" className="bg-[url('https://ik.imagekit.io/gengrupo03/landing-rh/Gemini_Generated_Image_phutiephutiephut.png?updatedAt=1754845611757')] bg-cover bg-center h-screen text-center flex items-center justify-center">
-                    <div className="backdrop-filter backdrop-blur-sm bg-white/50 shadow-2xl p-10 flex flex-col items-center justify-center rounded-full w-svh ">
-                        <img
-                            src="https://ik.imagekit.io/gengrupo03/landing-rh/titulogenrh.png?updatedAt=1754858639661"
-                            alt="GenRH"
-                            className='h-40'
-                        />
-                        <span className="block text-black/60 text-5xl font-bold italic text-center ">
-                            Organize, acompanhe e desenvolva
-                        </span>
-                        <span className="block text-black/60 text-2xl mt-4 font-bold text-center">
-                            TUDO EM UM SÓ LUGAR
-                        </span>
+            {/* <NavbarLanding /> */}
 
-                        <div className='rounded border-black/60 border-solid border-2 py-2 px-4 mt-4 text-black/60 hover:border-red-800 bg-stone-100/30 hover:shadow-lg hover:text-red-800 cursor-pointer'
-                        >
-                            <Link to='/login' className=' font-semibold text-2xl 
-                        '>Acesse agora!</Link>
+            <div className="bg-[#EDF2F4]">
+                <div className="flex justify-between">
+
+                    <div className='grid grid-cols-2'>
+
+                        <div className="flex flex-col gap-6 items-center justify-center">
+                            <h2 className="block text-black text-3xl md:text-7xl lg:text-9xl font-bold text-center ">
+                                GenCRM
+                            </h2>
+                            <p className="block text-[#325E80] text-sm md:text-2xl lg:text-5xl font-bold text-center">
+                                Controle seus <span className="bg-gradient-to-r from-[#ef476f] via-[#ef798a] to-[#ef476f] text-transparent bg-clip-text">
+                                    dados</span>
+                                , impulsione seus <span className="bg-gradient-to-r from-[#ef476f] via-[#ef798a] to-[#ef476f] text-transparent bg-clip-text">
+                                    resultados</span>!
+                            </p>
+                            <Link to="/login" className="border-black/80 border-2 text-lg text-black/80 font-semibold rounded py-2 px-4 hover:bg-[#325E80]/20 hover:shadow-lg cursor-pointer">
+                                ACESSE AGORA!
+                            </Link>
                         </div>
-                    </div>
-                </div >
 
-                <Equipe />
-                <Sobre />
-                <Tech />
-                <Futuro />
-                <FooterLanding />          
+                        <div>
+                            <img
+                                src="https://ik.imagekit.io/gengrupo03/genCRM/Gemini_Generated_Image_4gzqat4gzqat4gzq.png?updatedAt=1755037642461"
+                                alt="Imagem da página Home"
+                                className='w-full'
+                            />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <Equipe />
+            <Sobre />
+            <Tech />
+            <Futuro />
+            <FooterLanding />
         </>
     )
 }
