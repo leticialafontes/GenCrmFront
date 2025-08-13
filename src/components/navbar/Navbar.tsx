@@ -13,6 +13,7 @@ function Navbar() {
   function logout() {
     handleLogout()
     alert("O Usuário foi desconectado com sucesso!")
+    setDropdownOpen(false)
     navigate("/login")
   }
 
