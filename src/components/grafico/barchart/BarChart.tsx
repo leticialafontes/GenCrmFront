@@ -26,23 +26,23 @@ const data = {
     {
       label: "Redes Sociais",
       data: [12, 19, 3, 5],
-      backgroundColor: "rgba(50, 94, 128, 0.8)",
+      backgroundColor: "rgba(255, 99, 132, 0.85)",
       BorderColor: "rgba(13, 19, 23, 1)",
-      hoverBackgroundColor: "rgba(35, 79, 113, 1.2)",
+      hoverBackgroundColor: "rgba(230, 88, 120, 0.85)",
     },
     {
       label: "E-mail",
       data: [8, 15, 6, 9],
-      backgroundColor: "rgba(77, 130, 161, 0.8)",
+      backgroundColor: "rgba(75, 192, 192, 0.85)",
       BorderColor: "rgba(13, 19, 23, 1)",
-      hoverBackgroundColor: "rgba(62, 115, 146, 1.2)",
+      hoverBackgroundColor: "rgba(70, 170, 170, 0.85)",
     },
     {
       label: "Indicação",
       data: [5, 10, 15, 22],
-      backgroundColor: "rgba(105, 167, 195, 0.8)",
+      backgroundColor: "rgba(255, 159, 64, 0.85)",
       BorderColor: "rgba(13, 19, 23, 1)",
-      hoverBackgroundColor: "rgba(90, 152, 180, 1.2)",
+      hoverBackgroundColor: "rgba(230, 140, 70, 0.85)",
     },
   ],
 };
@@ -84,6 +84,12 @@ const chartOptions = {
     },
     y: {
       beginAtZero: true,
+    },
+  },
+  plugins: {
+    legend: {
+      display: true,
+      position: 'bottom',
     },
   },
 };

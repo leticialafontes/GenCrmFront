@@ -3,7 +3,6 @@ import {
   ArcElement,
   Tooltip,
   Legend,
-  plugins,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
@@ -26,23 +25,25 @@ const data = {
       label: "Contratos",
       data: arrdadosServicos,
       backgroundColor: [
-        "rgba(50, 94, 128, 1)",
-        "rgba(63, 112, 144, 1)",
-        "rgba(77, 130, 161, 1)",
-        "rgba(91, 149, 178, 1)",
-        "rgba(105, 167, 195, 1)",
-        "rgba(119, 185, 212, 1)",
-        "rgba(133, 204, 229, 1)",
+        "rgba(255, 99, 132, 0.85)", // Rosa vibrante
+        "rgba(54, 162, 235, 0.85)", // Azul vivo
+        "rgba(255, 206, 86, 0.85)", // Amarelo forte
+        "rgba(75, 192, 192, 0.85)", // Verde água
+        "rgba(153, 102, 255, 0.85)", // Roxo suave
+        "rgba(255, 159, 64, 0.85)", // Laranja vibrante
+        "rgba(0, 204, 102, 0.85)", // Verde forte
+        "rgba(255, 51, 153, 0.85)", // Pink
       ],
       BorderColor: "rgba(13, 19, 23, 1)",
       hoverBackgroundColor: [
-        "rgba(35, 79, 113, 1)",
-        "rgba(48, 97, 129, 1)",
-        "rgba(62, 115, 146, 1)",
-        "rgba(76, 134, 163, 1)",
-        "rgba(90, 152, 180, 1)",
-        "rgba(104, 170, 197, 1)",
-        "rgba(118, 189, 214, 1)",
+        "rgba(230, 88, 120, 0.85)", // Rosa levemente escurecido
+        "rgba(60, 149, 220, 0.85)", // Azul levemente escurecido
+        "rgba(230, 190, 75, 0.85)", // Amarelo levemente escurecido
+        "rgba(70, 170, 170, 0.85)", // Verde água levemente escurecido
+        "rgba(140, 92, 230, 0.85)", // Roxo levemente escurecido
+        "rgba(230, 140, 70, 0.85)", // Laranja levemente escurecido
+        "rgba(0, 184, 92, 0.85)", // Verde forte levemente escurecido
+        "rgba(230, 60, 140, 0.85)",
       ],
       hoverBorderColor: "rgba(0, 19, 23, 1.9)",
     },
@@ -52,7 +53,8 @@ const data = {
 const pieChartOptions = {
   plugins: {
     legend: {
-      display: false,
+      display: true,
+      position: "bottom",
     },
   },
 };
