@@ -15,11 +15,11 @@ function CardTech({ techs }: SobreProps) {
                 duration: 0.5,
                 scale: {visualDuration: 0.2 },
             }}
-        className="flex flex-col bg-white shadow-lg rounded-2xl overflow-hidden justify-between w-2xs h-sm">
-        <header className="py-2 px-2 ">
-          <img src={techs.pic} className="rounded-2xl" />
+        className="flex flex-col bg-white shadow-lg rounded-4xl overflow-hidden items-center justify-between w-1/10 h-1/10 ">
+        <header>
+          <img src={techs.pic} className="rounded-2xl p-1" />
         </header>
-        <p className="px-4 py-2 text-2xl  text-center font-bold">{techs.nome}</p>
+        <p className="pb-2 text-lg  text-center font-bold">{techs.nome}</p>
         
       </motion.div>
     </>
