@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function NavbarLanding() {
 
     return (
@@ -17,6 +19,8 @@ function NavbarLanding() {
                         <a href="#tech" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Tech</a>
                         <a href="#futuro" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Futuro</a>
                         <a href="#contato" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Contato</a>
+                        <Link to="/login" className="text-white font-semibold hover:bg-red-800/30 m-0 py-5 px-1">Entre/Cadastra-se</Link>
+
                     </div>
                 </div>
             </nav>
