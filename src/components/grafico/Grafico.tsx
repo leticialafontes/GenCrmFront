@@ -5,19 +5,19 @@ import PiesChart from "./pieschart/PiesChart";
 function Grafico() {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-between m-8 ">
-        <div className="w-md">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 col-auto items-center m-8 ">
+        <div className="w-2xl justify-center ms-5">
           <div className="p-1">
-            <h2>Contato</h2>
+            <h1>Contato</h1>
             <BarChart />
           </div>
           <div className="p-1">
-            <h2>Contratos</h2>
+            <h1>Contratos</h1>
             <LineChart />
           </div>
         </div>
-        <div className="w-full">
-          <h2>Serivços prestados</h2>
+        <div className="w-2xl p-3 ms-7">
+          <h1>Serviços prestados</h1>
           <PiesChart />
         </div>
       </div>
