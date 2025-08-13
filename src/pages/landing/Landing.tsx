@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import NavbarLanding from "../../components/navbar-landing/NavbarLanding";
 import Equipe from "../../components/equipe/Equipe";
+import Futuro from "../../components/futuro/Futuro";
 import Sobre from "../../components/sobre/Sobre";
 import Tech from "../../components/tech/Tech";
-import Futuro from "../../components/futuro/Futuro";
-import FooterLanding from "../../components/footer-landing/FooterLanding";
 
 function Landing() {
     return (
         <>
             {/* <NavbarLanding /> */}
+
 
             <div className="bg-[#EDF2F4]">
                 <div className="flex justify-between">
@@ -42,13 +41,13 @@ function Landing() {
                     </div>
 
                 </div>
-            </div>
+            
 
             <Equipe />
             <Sobre />
-            <Tech />
+            
             <Futuro />
-            <FooterLanding />
+            </div>
         </>
     )
 }
