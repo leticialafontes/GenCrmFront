@@ -6,29 +6,29 @@ function Sobre() {
   const metodosApp = metodos;
   return (
     <>
-      <div id="sobre" className="bg-red-900 flex flex-col pb-10">
+      <div id="sobre" className="bg-[#EDF2F4] flex flex-col pb-10">
 
         <div className=" flex justify-center ">
 
-          <div className='container grid grid-cols-2 gap-30 '>
-            <div className="flex flex-col gap-4 py-10">
-              <div className="bg-black/10 rounded-4xl p-5 ">
-                <h2 className="block text-stone-100 text-5xl font-bold text-left pb-10">
+          <div className='container bg-[#85CCE5]/10 grid grid-cols-2 justify-center px-5 mx-20 rounded-4xl shadow-lg'>
+            <div className="flex flex-col py-5">
+              
+                <h2 className="text-black text-4xl font-bold text-left pb-10">
                   SOBRE
                 </h2>
-                <p className='text-justify text-2xl font-semibold  text-stone-100 '>
+                <p className='text-justify text-2xl font-semibold  text-black '>
                   GenCRM é o software ideal para quem busca controlar e visualizar todas as interações com clientes de forma clara e eficiente.
                   Ele opera via API REST para integrar e gerenciar ambientes de CRM, organizando três áreas essenciais: 
                   registros de usuários, catálogo de serviços e categorias, com funcionalidades essenciais para o cotidiano da gestão.
                   Além disso, há ferramentas extras especialmente pensadas para otimizar processos e tornar o uso da plataforma ainda mais produtivo.
                 </p>
-              </div>
+              
             </div>
-            <div className="flex justify-center pb-10 ">
+            <div className="flex justify-center ">
               <img
-                src="https://ik.imagekit.io/gengrupo03/landing-rh/1901.jpg?updatedAt=1754678930768"
-                alt="Imagem da página Home"
-                className='w-1vh rounded-b-full'
+                src="https://ik.imagekit.io/gengrupo03/genCRM/ChatGPT_Image_10_de_jul._de_2025_12_17_28.png?updatedAt=1755020474593"
+                alt="Imagem do logo"
+                className='w-11/12 '
               />
             </div>
           </div>
