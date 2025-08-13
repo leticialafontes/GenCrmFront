@@ -28,10 +28,10 @@ function CardEquipe({ devs }: SobreProps) {
         </div>
 
         <div className="flex justify-evenly p-2">
-          <a href={devs.linkedin} target="_blank" className="text-white bg-blue-600 hover:bg-blue-500 cursor-pointer p-1 flex items-center justify-center rounded-2xl ">
+          <a href={devs.linkedin} target="_blank" className="text-white bg-blue-600 hover:bg-blue-500 cursor-pointer p-1 flex items-center justify-center rounded-2xl px-2">
             <LinkedinLogoIcon size={24} className="m-1" /> LinkedIn
           </a>
-          <a href={devs.github} target="_blank" className="text-white bg-black hover:bg-slate-600 cursor-pointer p-1 flex items-center justify-center rounded-2xl px-2">
+          <a href={devs.github} target="_blank" className="text-white bg-black hover:bg-slate-600 cursor-pointer p-1 flex items-center justify-center rounded-2xl px-3">
             <GithubLogoIcon size={24} className="m-1" />GitHub
           </a>
         </div>
