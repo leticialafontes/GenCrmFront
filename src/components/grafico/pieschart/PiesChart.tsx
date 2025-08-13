@@ -1,16 +1,13 @@
 import {
   Chart as ChartJS,
- ArcElement,
+  ArcElement,
   Tooltip,
   Legend,
+  plugins,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend
-);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const arrdadosServicos = [
   { nome: "Desenvolvimento Web", value: 35 },
@@ -48,16 +45,20 @@ const data = {
         "rgba(118, 189, 214, 1)",
       ],
       hoverBorderColor: "rgba(0, 19, 23, 1.9)",
-   
     },
   ],
 };
 
-
-console.log(data);
+const pieChartOptions = {
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+};
 
 function PiesChart() {
-  return <Pie data={data}/>;
+  return <Pie data={data} options={pieChartOptions} />;
 }
 
 export default PiesChart;
