@@ -46,8 +46,23 @@ function Cadastro() {
       if(confirmaSenha === usuario.senha && usuario.senha.length >= 8){
         setIsLoading(true)
 
+      // if(usuario.foto === "" || usuario.foto === null) {
+      //   setUsuario({
+      //     ...usuario,
+      //     foto: "https://ik.imagekit.io/gengrupo03/genCRM/user-pic.png"
+      //   })
+      //   cadastrarNovoUsuario
+      // }
+
+      const usuarioDefault = {
+        ...usuario,
+        foto: usuario.foto?.trim() === "" 
+          ? "https://ik.imagekit.io/gengrupo03/genCRM/user-pic.png"
+          : usuario.foto
+      };
+
         try {
-          await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario)
+          await cadastrarUsuario("/usuarios/cadastrar", usuarioDefault, setUsuario)
           alert("Usuario cadastrado com sucesso!")
         } catch (error) {
           alert("Erro ao cadastrar o usuário!")
