@@ -13,6 +13,8 @@ import Cadastro from './pages/cadastro/Cadastro'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import ListarCategoria from './components/categoria/listarcategoria/ListarCategoria'
+import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria'
+import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
 
 function App() {
 
@@ -33,6 +35,9 @@ function App() {
                 <Route path="/cadastrarservico" element={<FormServico />} />
                 <Route path="/editarservico/:id" element={<FormServico />} />
                 <Route path="/deletarservico/:id" element={<DeletarServico />} />
+                <Route path="/categorias/cadastrar" element={<CadastrarCategoria />} />
+                <Route path="/categorias/editar/:id" element={<CadastrarCategoria />} />
+                <Route path="/categorias/deletar/:id" element={<DeletarCategoria />} />
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/home' element={<Home />} />
               </Routes>
