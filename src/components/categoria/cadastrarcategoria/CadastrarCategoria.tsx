@@ -97,45 +97,48 @@ function CadastrarCategoria() {
 
 
     return (
-        <div className="w-full max-w-2xl mx-auto bg-slate-100 text-gray-800 border border-gray-300 rounded-md px-8 py-6 my-6 shadow-sm 
-hover:shadow-md transition-all duration-300">
 
-            <h1 className="text-2xl font-bold mb-4 text-left">
-                {id === undefined ? "Cadastrar Categoria" : "Editar Categoria"}
-            </h1>
+        <div className='bg-gradient-to-t from-sky-600 to-slate-100 min-h-[80vh] py-6'>
 
-            <form onSubmit={gerarNovaCategoria} className="flex flex-col gap-4">
-                <div className="flex flex-col text-left">
-                    <label htmlFor="nome" className="mb-1 font-medium text-sm text-gray-700">
-                        Nome da Categoria
-                    </label>
-                    <input
-                        type="text"
-                        placeholder="Nome da categoria"
-                        name="nome"
-                        value={categoria.nome}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                        className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 transition"
-                    />
-                </div>
+            <div className="w-full max-w-2xl mx-auto bg-slate-100 text-gray-800 border border-gray-300 rounded-md px-8 hover:shadow-md transition-all duration-300 py-2">
 
-                <button
-                    className="self-end px-6 py-2 rounded-md bg-gray-300 text-gray-700 hover:bg-sky-600 hover:text-white transition-all duration-300 font-medium"
-                    type="submit"
-                >
-                    {isLoading ? (
-                        <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
-                            visible={true}
+                <h1 className="text-2xl font-bold my-2 text-left mt-4">
+                    {id === undefined ? "Cadastrar Categoria" : "Editar Categoria"}
+                </h1>
+
+                <form onSubmit={gerarNovaCategoria} className="flex flex-col gap-4">
+                    <div className="flex flex-col text-left">
+                        <label htmlFor="nome" className="mb-1 font-medium text-sm text-gray-700">
+                            Nome da Categoria
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Nome da categoria"
+                            name="nome"
+                            value={categoria.nome}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                            className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 transition"
                         />
-                    ) : (
-                        <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
-                    )}
-                </button>
-            </form>
+                    </div>
+
+                    <button
+                        className="self-end px-6 py-2 rounded-md bg-gray-300 text-gray-700 hover:bg-sky-600 hover:text-white transition-all duration-300 font-medium"
+                        type="submit"
+                    >
+                        {isLoading ? (
+                            <RotatingLines
+                                strokeColor="white"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="24"
+                                visible={true}
+                            />
+                        ) : (
+                            <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
+                        )}
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
