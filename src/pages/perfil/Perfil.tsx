@@ -8,12 +8,12 @@ function Perfil() {
 
 	const { usuario } = useContext(AuthContext)
 
-	/*useEffect(() => {
+	useEffect(() => {
 		if (usuario.token === "") {
 			alert("Você precisa estar logado")
 			navigate("/")
 		}
-	}, [usuario.token]) */
+	}, [usuario.token])
 
 	return (
 		<div className="flex h-screen  ">

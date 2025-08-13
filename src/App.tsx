@@ -16,6 +16,7 @@ import Perfil from './pages/perfil/Perfil'
 import ListarCategoria from './components/categoria/listarcategoria/ListarCategoria'
 import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria'
 import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
+import Manutencao from './pages/manutencao/Manutencao'
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/categorias/deletar/:id" element={<DeletarCategoria />} /> 
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/manutencao' element={<Manutencao/>}/>
               </Routes>
             </div>
             <Footer />

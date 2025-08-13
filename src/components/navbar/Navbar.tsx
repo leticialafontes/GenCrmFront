@@ -46,16 +46,16 @@ function Navbar() {
                 </div>
                 <ul className="py-2" aria-labelledby="user-menu-button">
                   <li>
-                    <Link to={"/"} onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Perfil</Link>
+                    <Link to={"/perfil"} onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Perfil</Link>
                   </li>
                   <li>
-                    <Link to={"/"} onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configurações</Link>
+                    <Link to={"/manutencao"} onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configurações</Link>
                   </li>
                   <li>
-                    <Link to={"/"} onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Suporte</Link>
+                    <Link to={"/manutencao"} onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Suporte</Link>
                   </li>
                   <li>
-                    <Link to={"/"} onClick={logout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sair</Link>
+                    <Link to={"/login"} onClick={logout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sair</Link>
                   </li>
                 </ul>
               </div>
@@ -73,10 +73,10 @@ function Navbar() {
               <Link to={"/categorias"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Categorias</Link>
             </li>
             <li>
-              <Link to={"/"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Clientes</Link>
+              <Link to={"/manutencao"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Clientes</Link>
             </li>
             <li>
-              <Link to={"/"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Relatórios</Link>
+              <Link to={"/manutencao"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Relatórios</Link>
             </li>
           </ul>
         </div>
