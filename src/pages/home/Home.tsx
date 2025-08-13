@@ -21,10 +21,10 @@ function Home() {
     
   return (
     <>
-      <div className="container mx-auto w-[75vw]">
+      <div className="container mx-auto w-[75vw] mb-5">
         <h2 className="text-2xl p-2 my-2">Olá, <span className="font-semibold">{usuario.nome}</span>!</h2>
-        <div className="grid grid-cols-2 mx-auto mt-2">
-          <div className="py-2 m-2 flex flex-col gap-4">
+        <div className="grid grid-cols-2 mx-auto">
+          <div className="py-2 mx-2 flex flex-col gap-4">
             <div className="border border-slate-200 p-4 bg-white rounded-2xl shadow-lg">
               <h1 className="text-center text-lg font-semibold my-2 p-2">Origem do Contato</h1>
               <BarChart />
@@ -34,7 +34,7 @@ function Home() {
               <LineChart />
             </div>
           </div>
-          <div className="py-2 m-2 flex flex-col gap-4">
+          <div className="py-2 mx-2 flex flex-col gap-4">
             <div className="border border-slate-200 p-4 bg-white rounded-2xl shadow-lg">
               <h1 className="text-center text-lg font-semibold my-2 p-2">Categoria de Serviços</h1>
               <div className="w-md mx-auto">
