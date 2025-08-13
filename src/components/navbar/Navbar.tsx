@@ -9,7 +9,6 @@ function Navbar() {
   const navigate = useNavigate()
 
   const { usuario, handleLogout } = useContext(AuthContext)
-  console.log('Usuário no Navbar:', usuario)
 
   function logout() {
     handleLogout()
