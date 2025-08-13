@@ -17,7 +17,10 @@ function Sobre() {
                   SOBRE
                 </h2>
                 <p className='text-justify text-2xl font-semibold  text-stone-100 '>
-                  Uma plataforma moderna e prática, feita para facilitar a gestão de pessoas dentro da empresa. Com ela, é possível controlar os dados dos colaboradores, organizar os departamentos e gerenciar as atividades dos usuários ao sistema de forma simples. Tudo em uma interface pensada para tornar o dia a dia do setor de RH muito mais eficiente. Ideal para empresas que querem mais organização e agilidade.
+                  GenCRM é o software ideal para quem busca controlar e visualizar todas as interações com clientes de forma clara e eficiente.
+                  Ele opera via API REST para integrar e gerenciar ambientes de CRM, organizando três áreas essenciais: 
+                  registros de usuários, catálogo de serviços e categorias, com funcionalidades essenciais para o cotidiano da gestão.
+                  Além disso, há ferramentas extras especialmente pensadas para otimizar processos e tornar o uso da plataforma ainda mais produtivo.
                 </p>
               </div>
             </div>
