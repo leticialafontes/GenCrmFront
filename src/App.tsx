@@ -16,7 +16,6 @@ import ListarCategoria from './components/categoria/listarcategoria/ListarCatego
 import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria'
 import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
 
-
 function App() {
 
   return (
