@@ -13,6 +13,7 @@ import Cadastro from './pages/cadastro/Cadastro'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import ListarCategoria from './components/categoria/listarcategoria/ListarCategoria'
+import Grafico from './components/grafico/Grafico'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/deletarservico/:id" element={<DeletarServico />} />
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/grafico' element={<Grafico />} />
               </Routes>
             </div>
             <Footer />
