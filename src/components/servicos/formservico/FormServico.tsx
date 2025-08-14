@@ -14,7 +14,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 interface FormServicoProps {
   onCreate?: () => void
-  close: any
+  close?: any
 }
 
 function FormServico({onCreate, close}: FormServicoProps) {
