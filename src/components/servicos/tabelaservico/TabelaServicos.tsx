@@ -13,7 +13,7 @@ function TabelaServicos({servico} : TabelaServicosProps) {
         <td className="px-6 py-4 text-black text-lg">{servico.id}</td>
         <td className="px-6 py-4 text-black text-lg">{servico.nome}</td>
         <td className="px-6 py-4 text-black text-lg">{servico.descricao}</td>
-        <td className="px-6 py-4 text-black text-lg">R$ {servico.valor}</td>
+        <td className="px-6 py-4 text-black text-lg">{new Intl.NumberFormat("pt-br", {style:"currency", currency:"BRL"}).format(servico.valor)}</td>
         <td className="px-6 py-4 text-black text-lg">{servico.status}</td>      
         <td className="px-6 py-4 text-black text-lg">{servico.categoria?.nome}</td>
         <td className="font-lg">
