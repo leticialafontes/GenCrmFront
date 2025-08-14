@@ -6,17 +6,18 @@ import './App.css'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import DeletarServico from './components/servicos/deletarservico/DeletarServico'
-import FormServico from './components/servicos/formservico/FormServico'
 import ListaServicos from './components/servicos/listaservico/ListaServicos'
 import { AuthProvider } from './contexts/AuthContext'
 import Cadastro from './pages/cadastro/Cadastro'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
+import Landing from './pages/landing/Landing'
 import Perfil from './pages/perfil/Perfil'
 import ListarCategoria from './components/categoria/listarcategoria/ListarCategoria'
 import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria'
 import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
 import Manutencao from './pages/manutencao/Manutencao'
+import FormServico from './components/servicos/formservico/FormServico'
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
             <Navbar />
             <div className='min-h-[80vh]'>
               <Routes>
-                <Route path='/' element={<Login />} />
+                <Route path='/' element={<Landing />} />
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/perfil' element={<Perfil />} />

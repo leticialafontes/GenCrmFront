@@ -73,7 +73,7 @@ function DeletarServico() {
     }
 
     return (
-            <div className="border-2w-full max-w-2xl mx-auto bg-slate-100 text-gray-800 border border-gray-300 rounded-md px-8  shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="border-2w-full max-w-2xl mx-auto mt-30 bg-slate-100 text-gray-800 border border-gray-300 rounded-md px-8  shadow-sm hover:shadow-md transition-all duration-300">
 
                 <h1 className="text-2xl font-bold my-4 text-left text-red-600">
                     Deletar serviço

@@ -4,6 +4,7 @@ import PiesChart from "../../components/grafico/pieschart/PiesChart";
 import { AuthContext } from "../../contexts/AuthContext";
 import BarChart from "../../components/grafico/barchart/BarChart";
 import LineChart from "../../components/grafico/linechart/LineChart";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Home() {
 
@@ -13,7 +14,7 @@ function Home() {
 
   useEffect(() => {
       if (usuario.token === "") {
-        alert("Você precisa estar logado")
+        ToastAlerta("Você precisa estar logado", "erro")
         navigate("/")
       }
     }, [usuario.token])
