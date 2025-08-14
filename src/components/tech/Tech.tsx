@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import { tecnologiasBack } from "../data/tecnologiasback";
 import { tecnologiasBanco } from "../data/tecnologiasbanco";
+import { tecnologiasDeploy } from "../data/tecnologiasDeploy";
 import { tecnologiasFront } from "../data/tecnologiasfront";
 import { tecnologiasLinguagem } from "../data/tecnologiaslinguagem";
 import CardTech from "./CardTech";
-import { tecnologiasDeploy } from "../data/tecnologiasDeploy";
 
 function Tech() {
   const backend = tecnologiasBack;
