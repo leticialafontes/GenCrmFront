@@ -10,7 +10,6 @@ function Landing() {
         <>
             <NavbarLanding />
 
-
             <div id="landing" className="bg-[#EDF2F4]">
                 <div className="flex justify-between">
 
@@ -38,11 +37,8 @@ function Landing() {
                                 className='w-full'
                             />
                         </div>
-
                     </div>
-
                 </div>
-
 
                 <Equipe />
                 <Sobre />
@@ -68,14 +64,8 @@ function Landing() {
                         '>CONHEÇA O < br />SOFTWARE!</Link></button>
                         </div>
 
-
-
                     </div>
                 </div>
-
-
-
-
 
                 <Futuro />
             </div>

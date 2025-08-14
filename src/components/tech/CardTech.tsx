@@ -10,17 +10,17 @@ function CardTech({ techs }: SobreProps) {
     <>
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-                duration: 0.5,
-                scale: {visualDuration: 0.2 },
-            }}
-        className="flex flex-col bg-white shadow-lg rounded-4xl overflow-hidden items-center justify-between w-1/10 h-1/10 ">
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.5,
+          scale: { visualDuration: 0.2 },
+        }}
+        className="flex flex-col ite bg-white shadow-lg rounded-4xl overflow-hidden items-center justify-between w-46">
         <header>
-          <img src={techs.pic} className="rounded-2xl p-1" />
+          <img src={techs.pic} className="rounded-2xl p-3" />
         </header>
-        <p className="pb-2 text-lg  text-center font-bold">{techs.nome}</p>
-        
+        <p className="pb-2 px-2 text-lg  text-center font-bold">{techs.nome}</p>
+
       </motion.div>
     </>
   );

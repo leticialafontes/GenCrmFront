@@ -14,5 +14,10 @@ export const tecnologiasBack = [
     id: 3,
     nome: "NPM", 
     pic: "https://ik.imagekit.io/gengrupo03/landing-rh/npm-1.png?updatedAt=1754930206922",
+  },
+  {
+    id: 4,
+    nome: "JWT", 
+    pic: "https://ik.imagekit.io/gengrupo03/genCRM/json-web-tokens-jwt-io-logo-C003DEC47A-seeklogo.com.png?updatedAt=1755131707289",
   }
 ];
