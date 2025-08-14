@@ -12,7 +12,12 @@ import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { RotatingLines } from "react-loader-spinner";
 
-function FormServico() {
+interface FormServicoProps {
+  onCreate?: () => void
+  close: any
+}
+
+function FormServico({onCreate, close}: FormServicoProps) {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -117,6 +122,10 @@ function FormServico() {
           headers: { Authorization: token },
         });
         ToastAlerta("Serviço cadastrado com sucesso!", "sucesso");
+        if(onCreate) {
+          onCreate()
+        }
+        close()
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
@@ -133,12 +142,12 @@ function FormServico() {
 
 
   return (
-      <div className="container flex-col justify-center items-center min-h-screen bg-sky rounded-sm p-2">
+      <div className="container text-xl bg-slate-200 flex-col justify-center items-center min-h-screen bg-sky rounded-sm p-10">
             <div className="text-3xl text-center font-bold text-sky-900 mt-10">
                 {id !== undefined ? 'Editar Serviço' : 'Cadastrar Serviço'}
             </div>
 
-          <form className="bg-slate-100 shadow-xl/30  font-bold rounded-lg p-12 max-w-md w-full flex flex-col gap-6" onSubmit={gerarNovoServico}>
+          <form className="bg-slate-100 shadow-xl/30 font-bold rounded-lg p-8 max-w-md w-full flex flex-col gap-6" onSubmit={gerarNovoServico}>
             <div className="flex flex-col gap-2">
               <label htmlFor="nome">Nome do Serviço</label>
               <input

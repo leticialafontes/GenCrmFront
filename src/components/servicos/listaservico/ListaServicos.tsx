@@ -88,7 +88,7 @@ function ListaServicos() {
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
 
             <div className="flex justify-around gap-4 mt-4">
-                <ModalServico />
+                <ModalServico onCreate={buscarServicos}/>
             </div>
 
             <div className="flex justify-center gap-4 my-4">
