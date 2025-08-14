@@ -12,6 +12,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import Cadastro from './pages/cadastro/Cadastro'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
+import Landing from './pages/landing/Landing'
 import Perfil from './pages/perfil/Perfil'
 import ListarCategoria from './components/categoria/listarcategoria/ListarCategoria'
 import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria'
@@ -26,6 +27,7 @@ function App() {
         <AuthProvider>
           <ToastContainer />
           <BrowserRouter>
+          <Landing />
             <Navbar />
             <div className='min-h-[80vh]'>
               <Routes>
