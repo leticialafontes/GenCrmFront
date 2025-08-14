@@ -59,7 +59,7 @@ var misooptions = {
       min: 0,
     },
     x: {
-      ticks: { color: "gray", font: { weight: "bold" } },
+      ticks: { color: "gray", font: { weight: "bold" as const } },
     },
   },
   plugins: {

@@ -73,14 +73,10 @@ const data = {
 // };
 
 const chartOptions = {
-  title: {
-    display: true,
-    text: "Contratos mensais",
-  },
   scales: {
     x: {
-      type: "category",
-      position: "bottom",
+      type: "category" as const,
+      position: "bottom" as const,
     },
     y: {
       beginAtZero: true,
@@ -89,7 +85,11 @@ const chartOptions = {
   plugins: {
     legend: {
       display: true,
-      position: 'bottom',
+      position: "bottom" as const,
+    },
+    title: {
+      display: true,
+      text: "Contratos mensais",
     },
   },
 };

@@ -54,7 +54,7 @@ const pieChartOptions = {
   plugins: {
     legend: {
       display: true,
-      position: "bottom",
+      position: "bottom" as const,
     },
   },
 };
