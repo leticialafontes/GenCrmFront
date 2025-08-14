@@ -1,11 +1,12 @@
 import type Categoria from "./Categoria";
 import type Usuario from "./Usuario";
 
-export default interface Postagem {
+export default interface Servico {
   id: number;
-  titulo: string;
-  texto: string;
-  data: string;
+  nome: string;
+  descricao: string;
+  valor: number;
+  status: string;
   categoria: Categoria | null;
   usuario: Usuario | null;
 }
