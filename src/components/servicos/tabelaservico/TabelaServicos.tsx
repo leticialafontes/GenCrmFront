@@ -32,7 +32,7 @@ function TabelaServicos({servico} : TabelaServicosProps) {
                         Deletar
                     </button>
                 </Link>
-                <Link to={`/manutenção/${servico.id}`}>
+                <Link to={`/manutencao`}>
                 <button className="flex items-center gap-2 px-4 py-1.5 text-sm bg-gray-200 text-gray-700 hover:bg-yellow-600 hover:text-white rounded-md transition duration-200">
                     <InfoIcon size={18} weight="bold"/>
                     info

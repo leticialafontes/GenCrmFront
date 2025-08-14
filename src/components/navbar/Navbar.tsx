@@ -24,7 +24,7 @@ function Navbar() {
     component = (
       <nav className="bg-white border-b-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link to="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
             {/* <img src="LINK DA LOGO" className="h-8" alt="Logo do GenCRM" /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap ">GenCRM</span>
         </Link>
@@ -65,7 +65,7 @@ function Navbar() {
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
             <li>
-              <Link to={"/"} onClick={() => setDropdownOpen(false)}  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Home</Link>
+              <Link to={"/home"} onClick={() => setDropdownOpen(false)}  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Home</Link>
             </li>
             <li>
               <Link to={"/servicos"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Serviços</Link>

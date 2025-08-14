@@ -142,12 +142,12 @@ function FormServico({onCreate, close}: FormServicoProps) {
 
 
   return (
-      <div className="container text-xl bg-slate-200 flex-col justify-center items-center min-h-screen bg-sky rounded-sm p-10">
-            <div className="text-3xl text-center font-bold text-sky-900 mt-10">
+      <div className="container text-xl flex-col mx-auto justify-center items-center min-h-screen bg-sky rounded-sm p-10">
+            <div className="text-3xl text-center font-bold text-sky-900 mb-5">
                 {id !== undefined ? 'Editar Serviço' : 'Cadastrar Serviço'}
             </div>
 
-          <form className="bg-slate-100 shadow-xl/30 font-bold rounded-lg p-8 max-w-md w-full flex flex-col gap-6" onSubmit={gerarNovoServico}>
+          <form className="bg-slate-100 shadow-xl/30 font-bold rounded-lg mx-auto p-8 max-w-md w-full flex flex-col gap-6" onSubmit={gerarNovoServico}>
             <div className="flex flex-col gap-2">
               <label htmlFor="nome">Nome do Serviço</label>
               <input

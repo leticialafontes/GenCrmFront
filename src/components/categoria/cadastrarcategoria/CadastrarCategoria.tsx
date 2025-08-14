@@ -98,7 +98,7 @@ function CadastrarCategoria() {
 
     return (
 
-        <div className='bg-gradient-to-t from-sky-600 to-slate-100 min-h-[80vh] py-6'>
+        <div className='min-h-[80vh] py-6'>
 
             <div className="w-full max-w-2xl mx-auto bg-slate-100 text-gray-800 border border-gray-300 rounded-md px-8 hover:shadow-md transition-all duration-300 py-2">
 

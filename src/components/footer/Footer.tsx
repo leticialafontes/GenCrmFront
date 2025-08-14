@@ -15,13 +15,13 @@ function Footer() {
                   </Link>
                   <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
                       <li>
-                        <a href="#" className="hover:underline me-4 md:me-6">Projetos</a>
+                        <a href="https://github.com/orgs/Grupo-03-Turma-JavaScript-07/repositories" target="_blank" className="hover:underline me-4 md:me-6">Projetos</a>
                       </li>
                       <li>
-                        <a href="#" className="hover:underline me-4 md:me-6">GitHub</a>
+                        <a href="https://github.com/orgs/Grupo-03-Turma-JavaScript-07" target="_blank" className="hover:underline me-4 md:me-6">GitHub</a>
                       </li>
                       <li>
-                        <a href="#" className="hover:underline">Contato</a>
+                        <a href="https://github.com/orgs/Grupo-03-Turma-JavaScript-07" target="_blank" className="hover:underline">Contato</a>
                       </li>
                   </ul>
               </div>
