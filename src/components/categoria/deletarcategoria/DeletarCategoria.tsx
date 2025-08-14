@@ -51,7 +51,7 @@ function DeletarCategoria() {
         setIsLoading(true);
 
         try {
-            await deletar(`/deletarCategorias/${id}`, {
+            await deletar(`/categorias/${id}`, {
                 headers: {
                     'Authorization': token
                 }
