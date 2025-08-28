@@ -66,17 +66,17 @@ Principais endpoints utilizados:
 
 ### Passos
 
-\`\`\`bash
+```bash
 git clone https://github.com/Grupo-03-Turma-JavaScript-07/genCRM-front.git
 cd genCRM-front
 yarn
 yarn dev
-\`\`\`
+```
 
 O aplicativo estará disponível em:  
-\`\`\`
+```
 http://localhost:5173
-\`\`\`
+```
 
 
 ## 📄 Licença
