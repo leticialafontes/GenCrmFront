@@ -1,5 +1,5 @@
 
-  export const clientes = [
+  export const clientesIniciais = [
   {
     id: 1,
     nome: "Marcos Ferreira de Souza",
@@ -52,7 +52,7 @@
     observacoes: "Cliente avaliando proposta para app Android e iOS."
   },
   {
-    id: 2,
+    id: 4,
     nome: "Juliana Lima Castro",
     empresa: "Grupo Boticário",
     servico: "Consultoria em UX/UI",
@@ -69,4 +69,6 @@
     observacoes: "Projeto em andamento com entrega prevista para dezembro."
   }
 ];
+
+export const clientes = clientesIniciais;
 
