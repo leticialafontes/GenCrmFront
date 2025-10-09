@@ -190,7 +190,7 @@ function Manutencao() {
       </div>
     </div>
   );
-};
+}
 
 export default Manutencao;
 
