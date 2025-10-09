@@ -18,6 +18,7 @@ import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCat
 import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
 import Manutencao from './pages/manutencao/Manutencao'
 import FormServico from './components/servicos/formservico/FormServico'
+import Relatorios from './pages/relatorios/relatorios'
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/home' element={<Home />} />
                 <Route path='/manutencao' element={<Manutencao/>}/>
+                <Route path='/relatorios' element={<Relatorios/>}/>
               </Routes>
             </div>
             <Footer />

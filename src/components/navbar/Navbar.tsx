@@ -77,7 +77,7 @@ function Navbar() {
               <Link to={"/manutencao"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Clientes</Link>
             </li>
             <li>
-              <Link to={"/manutencao"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Relatórios</Link>
+              <Link to={"/relatorios"} onClick={() => setDropdownOpen(false)} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600 md:p-0">Relatórios</Link>
             </li>
           </ul>
         </div>

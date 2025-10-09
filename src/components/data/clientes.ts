@@ -1,0 +1,74 @@
+
+  export const clientesIniciais = [
+  {
+    id: 1,
+    nome: "Marcos Ferreira de Souza",
+    empresa: "Accenture",
+    servico: "Desenvolvimento Web",
+    tempoServico: "8 meses",
+    valorPago: 3500,
+    status: "Pendente",
+    email: "marcos.ferreira@accenture.com",
+    telefone: "(11) 91234-5678",
+    cidade: "São Paulo",
+    estado: "SP",
+    dataCadastro: "2023-05-10",
+    ultimaInteracao: "2025-10-05",
+    tipoCliente: "Potencial",
+    observacoes: "Cliente interessado em migrar o sistema legado para web."
+  },
+  {
+    id: 2,
+    nome: "Ana Beatriz Oliveira",
+    empresa: "Magazine Luiza",
+    servico: "Consultoria em E-commerce",
+    tempoServico: "1 ano",
+    valorPago: 7200,
+    status: "Ativo",
+    email: "ana.oliveira@magazineluiza.com",
+    telefone: "(31) 99877-6655",
+    cidade: "Belo Horizonte",
+    estado: "MG",
+    dataCadastro: "2022-11-20",
+    ultimaInteracao: "2025-09-30",
+    tipoCliente: "Ativo",
+    observacoes: "Projeto em andamento para otimização da plataforma."
+  },
+  {
+    id: 3,
+    nome: "Carlos Eduardo Santos",
+    empresa: "Natura",
+    servico: "Desenvolvimento Mobile",
+    tempoServico: "6 meses",
+    valorPago: 4500,
+    status: "Em contato",
+    email: "carlos.santos@natura.com.br",
+    telefone: "(21) 91234-7788",
+    cidade: "Rio de Janeiro",
+    estado: "RJ",
+    dataCadastro: "2023-03-15",
+    ultimaInteracao: "2025-10-04",
+    tipoCliente: "Potencial",
+    observacoes: "Cliente avaliando proposta para app Android e iOS."
+  },
+  {
+    id: 4,
+    nome: "Juliana Lima Castro",
+    empresa: "Grupo Boticário",
+    servico: "Consultoria em UX/UI",
+    tempoServico: "1 ano",
+    valorPago: 6000,
+    status: "Ativo",
+    email: "juliana.castro@boticario.com.br",
+    telefone: "(41) 99876-5432",
+    cidade: "Curitiba",
+    estado: "PR",
+    dataCadastro: "2024-11-22",
+    ultimaInteracao: "2025-10-01",
+    tipoCliente: "Ativo",
+    observacoes: "Projeto em andamento com entrega prevista para dezembro."
+  }
+];
+
+export const clientes = clientesIniciais;
+
