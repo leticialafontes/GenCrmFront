@@ -30,7 +30,7 @@ function Futuro() {
         <AnimatePresence>
             {visible && (
               <motion.img
-              
+                src="https://ik.imagekit.io/gengrupo03/genCRM/Gemini_Generated_Image_9uwmlw9uwmlw9uwm.png?updatedAt=1755110249309"
                 alt="Agradecimento"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
