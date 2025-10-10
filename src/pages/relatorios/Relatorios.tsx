@@ -112,7 +112,7 @@ function Relatorios() {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'top' as const,
       },
     },
     scales: {
