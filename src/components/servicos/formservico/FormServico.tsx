@@ -16,15 +16,18 @@ import { RotatingLines } from "react-loader-spinner";
 interface FormServicoProps {
   onCreate?: () => void
   close?: any
+  editData?: {open: boolean, data: any}
 }
 
-function FormServico({onCreate, close}: FormServicoProps) {
+function FormServico({onCreate, editData, close}: FormServicoProps) {
+  const {data} = {...editData}
   const navigate = useNavigate();
   const modalRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "" });
   const [servico, setServico] = useState<Servico>({} as Servico);
+  console.log('data',data)
 
   const { id } = useParams<{ id: string }>();
   const { usuario, handleLogout } = useContext(AuthContext);
@@ -168,7 +171,7 @@ function closeModal(e: any) {
                 name="nome"
                 required
                 className="border-2 border-sky-950 rounded p-2"
-                value={servico.nome || ""}
+                value={data.nome || ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -182,7 +185,7 @@ function closeModal(e: any) {
                 name="descricao"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.descricao || ""}
+                value={data.descricao || ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -197,7 +200,7 @@ function closeModal(e: any) {
                 pattern="[0-9]*"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.valor}
+                value={data.valor}
                 onChange={atualizarEstado}
                 onKeyDown={(e) => {
                 if (!/[0-9]|Backspace|Tab|ArrowLeft|ArrowRight|Delete/.test(e.key)) {
@@ -216,7 +219,7 @@ function closeModal(e: any) {
                 name="status"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.status || ""}
+                value={data.status || ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -226,15 +229,16 @@ function closeModal(e: any) {
               <select
                 name="categoria"
                 id="categoria"
+                value={data?.categoria?.id}
                 className="border p-2 border-slate-800 rounded"
                 onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
               >
                 <option value="" disabled selected className="bg-sky-200 tex-white">
                   Selecione a Categoria
                 </option>
-                {categorias.map((cat) => (
-                  <option key={cat.id} value={cat.id} >
-                    {cat.nome}
+                {categorias.map((cat, index) => (
+                  <option key={index} value={cat.id ? cat.id : data?.categoria?.id} >
+                    {cat.nome ? cat.nome : data?.categoria?.nome}
                   </option>
                 ))}
               </select>

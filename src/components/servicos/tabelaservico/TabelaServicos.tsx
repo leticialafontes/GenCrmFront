@@ -3,10 +3,11 @@ import { InfoIcon, PencilSimpleIcon, TrashIcon } from "@phosphor-icons/react";
 import type Servico from "../../../models/Servico";
 
 interface TabelaServicosProps{
-  servico: Servico
+  servico: Servico,
+  onEdit?: any
 }
 
-function TabelaServicos({servico} : TabelaServicosProps) {
+function TabelaServicos({servico, onEdit} : TabelaServicosProps) {
 
   return (
     <tr className="odd:bg-gray-200 even:bg-stone-50 hover:bg-gray-200 transition-colors">
@@ -18,13 +19,11 @@ function TabelaServicos({servico} : TabelaServicosProps) {
         <td className="px-6 py-4 text-black text-lg">{servico.categoria?.nome}</td>
         <td className="font-lg">
             <div className="flex gap-2 justify-center">
-                <Link to={`/editarservico/${servico.id}`}>
-                <button className="flex items-center gap-2 px-4 py-1.5 text-sm bg-gray-200 text-gray-700 
+                <button  onClick={() => onEdit(servico)} className="flex items-center gap-2 px-4 py-1.5 text-sm bg-gray-200 text-gray-700 
                                     hover:bg-gray-600 hover:text-white rounded-md transition duration-200">
                     <PencilSimpleIcon size={18} weight="bold" />
                     Editar
                 </button>
-                </Link>
                 <Link to={`/deletarservico/${servico.id}`}>
                     <button className="flex items-center gap-2 px-4 py-1.5 text-sm bg-gray-200 text-gray-700 
                                       hover:bg-red-600 hover:text-white rounded-md transition duration-200">
