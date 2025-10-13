@@ -2,6 +2,7 @@ import {
   useContext,
   useEffect,
   useState,
+  useRef,
   type ChangeEvent
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -15,15 +16,18 @@ import { RotatingLines } from "react-loader-spinner";
 interface FormServicoProps {
   onCreate?: () => void
   close?: any
+  editData?: {open: boolean, data: any}
 }
 
-function FormServico({onCreate, close}: FormServicoProps) {
+function FormServico({onCreate, editData, close}: FormServicoProps) {
+  const {data} = {...editData}
   const navigate = useNavigate();
-
+  const modalRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "" });
   const [servico, setServico] = useState<Servico>({} as Servico);
+  console.log('data',data)
 
   const { id } = useParams<{ id: string }>();
   const { usuario, handleLogout } = useContext(AuthContext);
@@ -87,6 +91,11 @@ function FormServico({onCreate, close}: FormServicoProps) {
   }, [categoria]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    const regex = /^[0-9]*$/;
+    if(e.target.name === 'valor' && !regex.test(e.target.value)){
+      return
+    }
+
     setServico({
       ...servico,
       [e.target.name]: e.target.value,
@@ -140,9 +149,14 @@ function FormServico({onCreate, close}: FormServicoProps) {
 
   const carregandoCategoria = categoria.nome === "";
 
+function closeModal(e: any) {
+    if(modalRef.current === e.target){
+      close()
+    }
+  }
 
   return (
-      <div className="container text-xl flex-col mx-auto justify-center items-center min-h-screen bg-sky rounded-sm p-10">
+      <div ref={modalRef} onClick={closeModal} className="container text-xl flex-col mx-auto justify-center items-center min-h-screen min-w-screen bg-sky rounded-sm p-10 backdrop-blur-sm">
             <div className="text-3xl text-center font-bold text-sky-900 mb-5">
                 {id !== undefined ? 'Editar Serviço' : 'Cadastrar Serviço'}
             </div>
@@ -157,7 +171,7 @@ function FormServico({onCreate, close}: FormServicoProps) {
                 name="nome"
                 required
                 className="border-2 border-sky-950 rounded p-2"
-                value={servico.nome || ""}
+                value={data.nome || ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -171,7 +185,7 @@ function FormServico({onCreate, close}: FormServicoProps) {
                 name="descricao"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.descricao || ""}
+                value={data.descricao || ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -180,14 +194,19 @@ function FormServico({onCreate, close}: FormServicoProps) {
               <label htmlFor="valor">Valor</label>
               <input
                 type="number"
-                placeholder="Informe o valor do Serviço"
+                placeholder="0000"
                 id="valor"
                 name="valor"
-                step={500}
+                pattern="[0-9]*"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.valor}
+                value={data.valor}
                 onChange={atualizarEstado}
+                onKeyDown={(e) => {
+                if (!/[0-9]|Backspace|Tab|ArrowLeft|ArrowRight|Delete/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               />
             </div>
 
@@ -200,7 +219,7 @@ function FormServico({onCreate, close}: FormServicoProps) {
                 name="status"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={servico.status || ""}
+                value={data.status || ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -210,15 +229,16 @@ function FormServico({onCreate, close}: FormServicoProps) {
               <select
                 name="categoria"
                 id="categoria"
+                value={data?.categoria?.id}
                 className="border p-2 border-slate-800 rounded"
                 onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
               >
                 <option value="" disabled selected className="bg-sky-200 tex-white">
                   Selecione a Categoria
                 </option>
-                {categorias.map((cat) => (
-                  <option key={cat.id} value={cat.id} >
-                    {cat.nome}
+                {categorias.map((cat, index) => (
+                  <option key={index} value={cat.id ? cat.id : data?.categoria?.id} >
+                    {cat.nome ? cat.nome : data?.categoria?.nome}
                   </option>
                 ))}
               </select>
