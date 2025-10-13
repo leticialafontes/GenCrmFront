@@ -1,20 +1,23 @@
 import { useContext, useEffect, useState, type SetStateAction } from "react";
+import Popup from "reactjs-popup";
 import { useNavigate } from "react-router-dom";
 import TabelaServicos from "../tabelaservico/TabelaServicos";
+import FormServico from "../formservico/FormServico";
 import type Servico from "../../../models/Servico";
 import { buscar, buscarPorNome } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Hourglass } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react";
-import ModalServico from "../modalservico/ModalServico";
 
 function ListaServicos() {
     const navigate = useNavigate();
-
     const [servicos, setServicos] = useState<Servico[]>([]);
-
+    const [edit, setEdit] = useState({open: false, data: []});
     const { usuario, handleLogout } = useContext(AuthContext);
+
+  const closeModal = () => setEdit({open: false, data: []});
+
     const token = usuario.token;
 
     const [busca, setBusca] = useState("");
@@ -71,6 +74,14 @@ function ListaServicos() {
         buscarServicos();  
     };
 
+    const handleModal = () => {
+        setEdit({open: true, data: []})
+
+    }
+
+    const handleEdit = (e) => {
+        setEdit({open: true, data: e})
+    }
 
     return (
         <>
@@ -94,7 +105,13 @@ function ListaServicos() {
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
 
             <div className="flex justify-around gap-4 mt-4">
-                <ModalServico onCreate={buscarServicos}/>
+                <Popup
+                      open={edit.open}
+                      onClose={closeModal}
+                      modal
+                    >
+                      <FormServico onCreate={buscarServicos} editData={({open: edit.open, data: edit.data})} close={closeModal}/>
+                    </Popup>
             </div>
 
             <div className="flex justify-center gap-4 my-4">
@@ -123,6 +140,12 @@ function ListaServicos() {
                     Limpar
                 </button>
 
+                <button
+                    onClick={handleModal}
+                    className="px-4 py-2 bg-gray-400 hover:bg-gray-500 text-white rounded-md shadow-sm">
+                    Novo serviço
+                </button>
+
 
             </div>
             <table className="w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400">
@@ -139,7 +162,7 @@ function ListaServicos() {
                 </thead>
                 <tbody>
                     {servicos.map((servico) => (
-                        <TabelaServicos key={servico.id} servico={servico} />
+                        <TabelaServicos key={servico.id} servico={servico} onEdit={handleEdit}/>
                     ))}
                 </tbody>
             </table>
