@@ -70,4 +70,3 @@
   }
 ];
 
-export const clientes = clientesIniciais;

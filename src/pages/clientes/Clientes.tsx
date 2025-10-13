@@ -11,7 +11,7 @@ import {
   Plus
 } from '@phosphor-icons/react';
 
-import { clientesIniciais } from '../../components/data/Clientes';
+import { clientesIniciais } from '../../components/data/clientes';
 
 function Clientes() {
   const [clientes, setClientes] = useState(clientesIniciais);

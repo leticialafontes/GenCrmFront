@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import futuro from '../../components/data/futuro';
 
-function Relatorios() {
+function NotasDeAtualizacoes() {
   const thanksRef = useRef(null);
   const isInView = useInView(thanksRef, { once: true, margin: '-150px' });
   const controls = useAnimation();
@@ -81,6 +81,6 @@ function Relatorios() {
   );
 }
 
-export default Relatorios;
+export default NotasDeAtualizacoes;
 
 

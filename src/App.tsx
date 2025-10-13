@@ -18,7 +18,8 @@ import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCat
 import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
 import FormServico from './components/servicos/formservico/FormServico'
 import Clientes from './pages/clientes/Clientes'
-import Relatorios from './pages/relatorios/Relatorios'
+import NotasDeAtualizacoes from './pages/notasdeatualizacoes/NotasDeAtualizacoes'
+
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/home' element={<Home />} />
                 <Route path='/clientes' element={<Clientes/>}/>
-                 <Route path='/relatorios' element={<Relatorios/>}/>
+                 <Route path='/Notasdeatualizacoes' element={<NotasDeAtualizacoes/>}/>
               </Routes>
             </div>
             <Footer />
