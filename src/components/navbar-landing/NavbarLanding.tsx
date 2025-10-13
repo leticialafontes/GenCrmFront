@@ -16,7 +16,6 @@ function NavbarLanding() {
                         <a href="#equipe" className="hover:text-[#85CCE5] hover:underline decoration-2">Equipe</a>
                         <a href="#sobre" className="hover:text-[#85CCE5] hover:underline decoration-2">Sobre</a>
                         <a href="#tech" className="hover:text-[#85CCE5] hover:underline decoration-2">Tech</a>
-                        <a href="#futuro" className="hover:text-[#85CCE5] hover:underline decoration-2">Futuro</a>
                         <a href="#contato" className="hover:text-[#85CCE5] hover:underline decoration-2">Contato</a>
                         <Link to="/login" className="hover:text-[#85CCE5] hover:underline decoration-2">Entre/<br />Cadastre-se</Link>
 
