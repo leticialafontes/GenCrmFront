@@ -69,4 +69,7 @@
     observacoes: "Projeto em andamento com entrega prevista para dezembro."
   }
 ];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3298049 (conflito solucionado em dev)
