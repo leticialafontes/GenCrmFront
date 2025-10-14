@@ -36,7 +36,7 @@
   },
   {
     id: 3,
-    nome: "Carlos Eduardo Santos",
+    nome: "Paulo Eduardo Santos",
     empresa: "Natura",
     servico: "Desenvolvimento Mobile",
     tempoServico: "6 meses",
@@ -67,5 +67,39 @@
     ultimaInteracao: "2025-10-01",
     tipoCliente: "Ativo",
     observacoes: "Projeto em andamento com entrega prevista para dezembro."
-  }
+  },
+  {
+  id: 5,
+  nome: "Carlos Henrique Moreira",
+  empresa: "Vale S.A.",
+  servico: "Consultoria em DevOps",
+  tempoServico: "2 anos",
+  valorPago: 8500,
+  status: "Ativo",
+  email: "carlos.moreira@vale.com",
+  telefone: "(31) 99888-1122",
+  cidade: "Belo Horizonte",
+  estado: "MG",
+  dataCadastro: "2023-09-10",
+  ultimaInteracao: "2025-09-25",
+  tipoCliente: "Ativo",
+  observacoes: "Implantação de pipeline concluída. Próxima etapa envolve monitoramento."
+},
+{
+  id: 6,
+  nome: "Renata Souza Freitas",
+  empresa: "Magazine Luiza",
+  servico: "Treinamento em Design Thinking",
+  tempoServico: "6 meses",
+  valorPago: 4200,
+  status: "Ativo",
+  email: "renata.freitas@magazineluiza.com.br",
+  telefone: "(11) 91234-5678",
+  cidade: "São Paulo",
+  estado: "SP",
+  dataCadastro: "2025-03-15",
+  ultimaInteracao: "2025-10-10",
+  tipoCliente: "Ativo",
+  observacoes: "Workshop inicial concluído. Aguardando feedback para próxima fase."
+},
 ];
