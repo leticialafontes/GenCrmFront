@@ -17,9 +17,10 @@ interface FormServicoProps {
   onCreate?: () => void
   close?: any
   editData?: {open: boolean, data: any}
+  refresh?: () => void
 }
 
-function FormServico({onCreate, editData, close}: FormServicoProps) {
+function FormServico({onCreate, editData, close, refresh}: FormServicoProps) {
   const {data} = {...editData}
   const navigate = useNavigate();
   const modalRef = useRef<HTMLDivElement>(null)
@@ -27,11 +28,10 @@ function FormServico({onCreate, editData, close}: FormServicoProps) {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "" });
   const [servico, setServico] = useState<Servico>({} as Servico);
-  console.log('data',data)
-
-  const { id } = useParams<{ id: string }>();
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
+
+  console.log('data',data)
 
   async function buscarServicoPorId(id: string) {
     try {
@@ -78,10 +78,10 @@ function FormServico({onCreate, editData, close}: FormServicoProps) {
 
   useEffect(() => {
     buscarCategorias();
-    if (id !== undefined) {
-      buscarServicoPorId(id);
+    if (data.id !== undefined) {
+      buscarServicoPorId(data.id);
     }
-  }, [id]);
+  }, [data.id]);
 
   useEffect(() => {
     setServico({
@@ -89,6 +89,12 @@ function FormServico({onCreate, editData, close}: FormServicoProps) {
       categoria: categoria,
     });
   }, [categoria]);
+
+  useEffect(() => {
+  if (data) {
+    setServico(data);
+  }
+}, [data]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     const regex = /^[0-9]*$/;
@@ -112,12 +118,14 @@ function FormServico({onCreate, editData, close}: FormServicoProps) {
     e.preventDefault();
     setIsLoading(true);
 
-    if (id !== undefined) {
+    if (data.id !== undefined) {
       try {
         await atualizar(`/servicos`, servico, setServico, {
           headers: { Authorization: token },
         });
         ToastAlerta("Serviço atualizado com sucesso!", "sucesso");
+        close()
+        refresh()
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
@@ -147,7 +155,11 @@ function FormServico({onCreate, editData, close}: FormServicoProps) {
     retornar();
   }
 
-  const carregandoCategoria = categoria.nome === "";
+  const valid = (value: any) => {
+    return value !== undefined || value !== "" || value !== null
+  }
+
+  const validate = valid(servico.nome) && valid(servico.descricao) && valid(servico?.categoria?.id) && valid(servico?.valor) && valid(servico?.status)
 
 function closeModal(e: any) {
     if(modalRef.current === e.target){
@@ -158,7 +170,7 @@ function closeModal(e: any) {
   return (
       <div ref={modalRef} onClick={closeModal} className="container text-xl flex-col mx-auto justify-center items-center min-h-screen min-w-screen bg-sky rounded-sm p-10 backdrop-blur-sm">
             <div className="text-3xl text-center font-bold text-sky-900 mb-5">
-                {id !== undefined ? 'Editar Serviço' : 'Cadastrar Serviço'}
+                {data?.id ? 'Editar Serviço' : 'Cadastrar Serviço'}
             </div>
 
           <form className="bg-slate-100 shadow-xl/30 font-bold rounded-lg mx-auto p-8 max-w-md w-full flex flex-col gap-6" onSubmit={gerarNovoServico}>
@@ -171,7 +183,8 @@ function closeModal(e: any) {
                 name="nome"
                 required
                 className="border-2 border-sky-950 rounded p-2"
-                value={data.nome || ""}
+                value={ servico.nome ?? ""}
+                
                 onChange={atualizarEstado}
               />
             </div>
@@ -185,7 +198,7 @@ function closeModal(e: any) {
                 name="descricao"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={data.descricao || ""}
+                value={servico.descricao ?? "" }
                 onChange={atualizarEstado}
               />
             </div>
@@ -200,7 +213,7 @@ function closeModal(e: any) {
                 pattern="[0-9]*"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={data.valor}
+                value={servico.valor ?? 0}
                 onChange={atualizarEstado}
                 onKeyDown={(e) => {
                 if (!/[0-9]|Backspace|Tab|ArrowLeft|ArrowRight|Delete/.test(e.key)) {
@@ -219,7 +232,7 @@ function closeModal(e: any) {
                 name="status"
                 required
                 className="border-2 border-slate-700 rounded p-2"
-                value={data.status || ""}
+                value={servico.status ?? ""}
                 onChange={atualizarEstado}
               />
             </div>
@@ -229,7 +242,7 @@ function closeModal(e: any) {
               <select
                 name="categoria"
                 id="categoria"
-                value={data?.categoria?.id}
+                value={servico.categoria?.id ?? ""}
                 className="border p-2 border-slate-800 rounded"
                 onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
               >
@@ -247,7 +260,7 @@ function closeModal(e: any) {
             <button
               type="submit"
               className="rounded disabled:bg-slate-200 bg-sky-700 hover:bg-sky-500 text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
-              disabled={carregandoCategoria}
+              disabled={!validate}
             >
               {isLoading ? (
                 <RotatingLines
@@ -258,7 +271,7 @@ function closeModal(e: any) {
                   visible={true}
                 />
               ) : (
-                <span>{id !== undefined ? "Atualizar" : "Cadastrar"}</span>
+                <span>{data.id !== undefined ? "Atualizar" : "Cadastrar"}</span>
               )}
             </button>
           </form>

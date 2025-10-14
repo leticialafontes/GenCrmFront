@@ -16,11 +16,15 @@ function ListaServicos() {
     const [edit, setEdit] = useState({open: false, data: []});
     const { usuario, handleLogout } = useContext(AuthContext);
 
-  const closeModal = () => setEdit({open: false, data: []});
+    const closeModal = () => setEdit({open: false, data: []});
 
     const token = usuario.token;
 
     const [busca, setBusca] = useState("");
+
+    const onRefresh = () => {
+        buscarServicos()
+    }
 
     async function buscarServicos() {
         try {
@@ -110,7 +114,7 @@ function ListaServicos() {
                       onClose={closeModal}
                       modal
                     >
-                      <FormServico onCreate={buscarServicos} editData={({open: edit.open, data: edit.data})} close={closeModal}/>
+                      <FormServico onCreate={buscarServicos} editData={({open: edit.open, data: edit.data})} refresh={onRefresh} close={closeModal}/>
                     </Popup>
             </div>
 
