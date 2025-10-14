@@ -1,4 +1,4 @@
-
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -16,18 +16,38 @@ import Perfil from './pages/perfil/Perfil'
 import ListarCategoria from './components/categoria/listarcategoria/ListarCategoria'
 import DeletarCategoria from './components/categoria/deletarcategoria/DeletarCategoria'
 import CadastrarCategoria from './components/categoria/cadastrarcategoria/CadastrarCategoria'
-import Manutencao from './pages/manutencao/Manutencao'
 import FormServico from './components/servicos/formservico/FormServico'
+import Clientes from './pages/clientes/Clientes'
+import NotasDeAtualizacoes from './pages/notasdeatualizacoes/NotasDeAtualizacoes'
 
 function App() {
+  
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode')
+    if (savedMode) {
+      setDarkMode(savedMode === 'true')
+    }
+  }, [])
+
+  
+  function toggleDarkMode() {
+    setDarkMode((prev) => {
+      localStorage.setItem('darkMode', String(!prev))
+      return !prev
+    })
+  }
 
   return (
     <>
-      <div className='bg-slate-200'>
+      
+      <div className={darkMode ? 'dark bg-[#334155] text-white min-h-screen' : 'bg-slate-200 min-h-screen'}>
         <AuthProvider>
           <ToastContainer />
           <BrowserRouter>
-            <Navbar />
+            
+            <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
             <div className='min-h-[80vh]'>
               <Routes>
                 <Route path='/' element={<Landing />} />
@@ -42,12 +62,13 @@ function App() {
                 <Route path="/categorias/cadastrar" element={<CadastrarCategoria />} />
                 <Route path="/categorias/editar/:id" element={<CadastrarCategoria />} /> 
                 <Route path="/categorias/deletar/:id" element={<DeletarCategoria />} /> 
-                <Route path='/cadastro' element={<Cadastro />} />
                 <Route path='/home' element={<Home />} />
-                <Route path='/manutencao' element={<Manutencao/>}/>
+                <Route path="/clientes" element={<Clientes darkMode={darkMode} />} />
+                <Route path='/notasdeatualizacoes' element={<NotasDeAtualizacoes darkMode={darkMode} />} />
               </Routes>
             </div>
-            <Footer />
+            
+            <Footer darkMode={darkMode} />
           </BrowserRouter>
         </AuthProvider>
       </div>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Equipe from "../../components/equipe/Equipe";
-import Futuro from "../../components/futuro/Futuro";
 import Sobre from "../../components/sobre/Sobre";
 import Tech from "../../components/tech/Tech";
 import NavbarLanding from "../../components/navbar-landing/NavbarLanding";
@@ -59,15 +58,13 @@ function Landing() {
                             </p>
                         </div>
 
-                        <div className="">
+                        <div className="grid justify-center">
                             <button type="button" className="cursor-pointer px-9 py-4 text-base font-medium text-white rounded-4xl text-center bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 "><Link to='/login' className=' font-semibold text-2xl 
                         '>CONHEÇA O < br />SOFTWARE!</Link></button>
                         </div>
 
                     </div>
                 </div>
-
-                <Futuro />
             </div>
         </>
     )
