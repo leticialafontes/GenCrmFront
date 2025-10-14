@@ -9,7 +9,7 @@ import {
   Plus,
   Wallet
 } from '@phosphor-icons/react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { clientesIniciais } from '../../components/data/clientes';
 
@@ -18,7 +18,7 @@ type ClientesProps = {
 };
 
 function Clientes({ darkMode }: ClientesProps) {
-  const [clientes, setClientes] = useState(clientesIniciais);
+  const [clientes, setClientes] = useState([]);
   const [busca, setBusca] = useState('');
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true); // Controle da sidebar
@@ -38,6 +38,10 @@ function Clientes({ darkMode }: ClientesProps) {
     observacoes: '',
   });
   const [exclusaoId, setExclusaoId] = useState<number | null>(null);
+
+    useEffect(() => {
+      setClientes(clientesIniciais)
+    }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
