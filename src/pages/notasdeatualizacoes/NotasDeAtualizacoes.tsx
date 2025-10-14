@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 type NotasDeAtualizacoesProps = {
   darkMode: boolean;
@@ -17,18 +17,24 @@ function NotasDeAtualizacoes({ darkMode }: NotasDeAtualizacoesProps) {
   const cards = [
     {
       id: 1,
-      titulo: '📱 Versão Mobile',
-      descricao:
-        'Vamos desenvolver uma versão mobile para facilitar o acesso ao GENCRM em qualquer lugar. A experiência será otimizada para smartphones e tablets, mantendo todas as funcionalidades essenciais.',
-    },
-    {
-      id: 2,
       titulo: '🔐 Hierarquia de Acesso',
       descricao:
         'O sistema conta com diferentes níveis de acesso: liderança vê tudo, equipe vê o necessário, garantindo segurança e organização.',
     },
     {
+      id: 2,
+      titulo: '📱 Versão Mobile',
+      descricao:
+        'Vamos desenvolver uma versão mobile para facilitar o acesso ao GENCRM em qualquer lugar. A experiência será otimizada para smartphones e tablets, mantendo todas as funcionalidades essenciais.',
+    },
+    {
       id: 3,
+      titulo: '💬 Chatbot Inteligente',
+      descricao:
+        'Integrar um chatbot para interagir com clientes em tempo real, tirar dúvidas, fornecer informações e registrar feedback, garantindo um atendimento ágil e eficiente, especialmente na versão mobile.',
+    },
+    {
+      id: 4,
       titulo: '👥 Conheça a Equipe',
       descricao: 'Escaneie o QR Code para acessar o perfil dos integrantes do grupo.',
       qrCode: true,
@@ -50,7 +56,7 @@ function NotasDeAtualizacoes({ darkMode }: NotasDeAtualizacoesProps) {
       className={`min-h-screen ${bgMain} px-8 py-16 ${textPrimary} font-sans transition-colors duration-500`}
     >
       <div className="max-w-7xl mx-auto">
-        
+
         <header className="text-center mb-24">
           <h1
             className={`text-6xl font-extrabold ${titleColor} mb-6 drop-shadow-md tracking-tight`}
@@ -67,7 +73,7 @@ function NotasDeAtualizacoes({ darkMode }: NotasDeAtualizacoesProps) {
           </motion.p>
         </header>
 
-       
+
         <div className="space-y-20">
           {cards.map((card) => (
             <motion.section
@@ -85,7 +91,7 @@ function NotasDeAtualizacoes({ darkMode }: NotasDeAtualizacoesProps) {
               {card.qrCode && (
                 <div className="flex justify-center">
                   <img
-                    src="https://cdn.discordapp.com/attachments/1386782742628405268/1427298084341153882/image.png?ex=68ee5a6d&is=68ed08ed&hm=30aeb0f108ee5b1216d5113b3a5c2b2f625b4864d20b4f4e0f5127983d1a5ffd&"
+                    src="https://ik.imagekit.io/gengrupo03/genCRM/QR%20code.png?updatedAt=1760463384792"
                     alt="QR Code Equipe"
                     className="w-64 h-64 object-contain border-4 border-[#85CCE5] rounded-xl shadow-md transition-shadow duration-300 hover:shadow-[0_0_50px_rgba(133,204,229,0.3)]"
                   />
@@ -97,7 +103,7 @@ function NotasDeAtualizacoes({ darkMode }: NotasDeAtualizacoesProps) {
 
         <div className="h-32" />
 
-      
+
         <motion.div
           ref={thanksRef}
           initial={{ opacity: 0, y: 100 }}
